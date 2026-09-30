@@ -12,15 +12,22 @@ services:
   app:
     build: .
     environment:
-      # CPM_API_KEY: "change-me"
-      # CPM_SECRET_KEY: "generate-with-fernet"
+      CPM_API_KEY: "change-me"
+      CPM_SECRET_KEY: "FzjoToCwYAqcYa7v4fqGXbNLinGwW8OunuPOPwt-gO0="
       # Set when a TLS-terminating proxy sits in front, so the session cookie
       # keeps its Secure flag even though this process sees plain HTTP.
       # CPM_SECURE_COOKIES: "1"
+      CPM_NOVNC_PUBLIC_BASE_URL: "http://127.0.0.1"
+      CPM_DISPLAY_BASE: "100"
+      CPM_VNC_PORT_BASE: "5900"
+      CPM_NOVNC_PORT_BASE: "6080"
+      CPM_DESKTOP_MAX: "100"
     volumes:
-      - cpm-data:/data
+      - ./cpm-data:/data
+      - ./camoufox-cache:/root/.cache/camoufox
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8100:8100"
+      - "127.0.0.1:6080-6179:6080-6179"
     restart: unless-stopped
 
 volumes:

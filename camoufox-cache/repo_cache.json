@@ -1,0 +1,398 @@
+{
+  "repos": [
+    {
+      "name": "Official",
+      "repo": "daijro/camoufox",
+      "versions": [
+        {
+          "version": "156.0.1",
+          "build": "beta.33",
+          "url": "https://github.com/daijro/camoufox/releases/download/v156.0.1-beta.33/camoufox-156.0.1-beta.33-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 599680163,
+          "asset_size": 1294876837,
+          "asset_updated_at": "2026-09-30T01:18:07Z",
+          "sha256": "730d731153b2a16cac238a0b4a7f849c04d1fd6181c09ec6af29695af0407af8",
+          "created_at": "2026-09-30T01:17:35Z"
+        },
+        {
+          "version": "156.0.1",
+          "build": "beta.32",
+          "url": "https://github.com/daijro/camoufox/releases/download/v156.0.1-beta.32/camoufox-156.0.1-beta.32-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 596584914,
+          "asset_size": 1294876709,
+          "asset_updated_at": "2026-09-28T22:40:57Z",
+          "sha256": "b0b0ac64aa4e8ca08b1acca512e4c8e081423c495e07f3fbed3761c3fe84dbae",
+          "created_at": "2026-09-28T22:39:52Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.31",
+          "url": "https://github.com/daijro/camoufox/releases/download/font-bundle-v1/camoufox-152.0.4-beta.31-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 586929207,
+          "asset_size": 663476534,
+          "asset_updated_at": "2026-09-24T21:57:43Z",
+          "sha256": "3a7958c84c0c1962574bb177a10a247b614823557308ccb7cf2e2bc9ce406c55",
+          "created_at": "2026-09-24T21:57:25Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.30",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.30/camoufox-152.0.4-beta.30-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 538708879,
+          "asset_size": 663467670,
+          "asset_updated_at": "2026-09-01T00:37:25Z",
+          "sha256": "5720d45b894ce1770543de024c6f10d514b38be560fa2dc3226b3d8586caf672",
+          "created_at": "2026-09-01T00:37:04Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.29",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.29/camoufox-152.0.4-beta.29-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 522725366,
+          "asset_size": 663434141,
+          "asset_updated_at": "2026-08-20T19:57:00Z",
+          "sha256": "1bea4b55a51c88e82dc7d426d9c75093d942d2afc8c911cb8fc78ebf723d686c",
+          "created_at": "2026-08-20T19:56:44Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.28",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.28/camoufox-152.0.4-beta.28-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 482185256,
+          "asset_size": 663387175,
+          "asset_updated_at": "2026-07-19T07:19:41Z",
+          "sha256": "924f3109ccd6d47cd6a0384d67a345fadf975d48b6319f8dbbd5954c588982bd",
+          "created_at": "2026-07-19T07:19:16Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.27",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.27/camoufox-152.0.4-beta.27-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 479733202,
+          "asset_size": 663428684,
+          "asset_updated_at": "2026-07-16T23:50:16Z",
+          "sha256": "c6d24b18196d8fabcf074e9d53df7a026323cb2e30b25fd3630bdae025c1a44b",
+          "created_at": "2026-07-16T23:49:59Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.26",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.26/camoufox-152.0.4-beta.26-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 478608822,
+          "asset_size": 663773735,
+          "asset_updated_at": "2026-07-16T01:26:52Z",
+          "sha256": "a03872a221ab766f58d04fdaf0d7f3431c2662d5086844c67d2fc01154ebc1f8",
+          "created_at": "2026-07-16T01:26:28Z"
+        },
+        {
+          "version": "135.0.1",
+          "build": "beta.24",
+          "url": "https://github.com/daijro/camoufox/releases/download/v135.0.1-beta.24/camoufox-135.0.1-beta.24-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 237731699,
+          "asset_size": 712711368,
+          "asset_updated_at": "2025-03-15T12:33:24Z",
+          "sha256": null,
+          "created_at": "2025-03-15T12:33:01Z"
+        },
+        {
+          "version": "135.0.1",
+          "build": "beta.23",
+          "url": "https://github.com/daijro/camoufox/releases/download/v135.0.1-beta.23/camoufox-135.0.1-beta.23-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 234451745,
+          "asset_size": 712711636,
+          "asset_updated_at": "2025-03-04T10:40:13Z",
+          "sha256": null,
+          "created_at": "2025-03-04T10:39:53Z"
+        },
+        {
+          "version": "135.0",
+          "build": "beta.22",
+          "url": "https://github.com/daijro/camoufox/releases/download/v135.0-beta.22/camoufox-135.0-beta.22-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 228130251,
+          "asset_size": 712876130,
+          "asset_updated_at": "2025-02-11T09:12:27Z",
+          "sha256": null,
+          "created_at": "2025-02-11T09:12:11Z"
+        },
+        {
+          "version": "135.0",
+          "build": "beta.21",
+          "url": "https://github.com/daijro/camoufox/releases/download/v135.0-beta.21/camoufox-135.0-beta.21-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 226724645,
+          "asset_size": 712875831,
+          "asset_updated_at": "2025-02-06T03:01:21Z",
+          "sha256": null,
+          "created_at": "2025-02-06T03:01:06Z"
+        },
+        {
+          "version": "134.0.2",
+          "build": "beta.20",
+          "url": "https://github.com/daijro/camoufox/releases/download/v134.0.2-beta.20/camoufox-134.0.2-beta.20-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 223525409,
+          "asset_size": 710926844,
+          "asset_updated_at": "2025-01-26T01:55:55Z",
+          "sha256": null,
+          "created_at": "2025-01-26T01:55:38Z"
+        },
+        {
+          "version": "133.0",
+          "build": "beta.19",
+          "url": "https://github.com/daijro/camoufox/releases/download/v133.0-beta.19/camoufox-133.0-beta.19-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 212112235,
+          "asset_size": 710385495,
+          "asset_updated_at": "2024-12-09T13:06:06Z",
+          "sha256": null,
+          "created_at": "2024-12-09T13:05:46Z"
+        },
+        {
+          "version": "150.0.2",
+          "build": "alpha.26",
+          "url": "https://github.com/daijro/camoufox/releases/download/v150.0.2-beta.25/camoufox-150.0.2-alpha.26-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 419692983,
+          "asset_size": 661687098,
+          "asset_updated_at": "2026-05-13T23:38:29Z",
+          "sha256": "b146b98b0c2c41023716feef36451f319a534309f72c54584a4b0b88670f510b",
+          "created_at": "2026-05-13T23:17:11Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "alpha.25",
+          "url": "https://github.com/daijro/camoufox/releases/download/v152.0.2-alpha/camoufox-152.0.4-alpha.25-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 467784311,
+          "asset_size": 557395667,
+          "asset_updated_at": "2026-07-06T06:50:09Z",
+          "sha256": "57d3a04d58d515e1eedcfeb216af9949937ba9d5e0c792bef2f95c547afc8e87",
+          "created_at": "2026-07-06T06:10:33Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "alpha.25",
+          "url": "https://github.com/daijro/camoufox/releases/download/v146-hardware/camoufox-146.0.1-alpha.25-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 373785046,
+          "asset_size": 657333789,
+          "asset_updated_at": "2026-03-14T14:52:38Z",
+          "sha256": "f853242cb83477e6472d2a81690c6c7cafb3e4d2975e516a6c93e0da3f4dc54a",
+          "created_at": "2026-03-14T14:49:10Z"
+        }
+      ]
+    },
+    {
+      "name": "CoryKing",
+      "repo": "coryking/camoufox",
+      "versions": [
+        {
+          "version": "142.0.1",
+          "build": "fork.26",
+          "url": "https://github.com/coryking/camoufox/releases/download/v142.0.1-fork.26/camoufox-142.0.1-fork.26-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 309735318,
+          "asset_size": 715072368,
+          "asset_updated_at": "2025-10-28T15:32:51Z",
+          "sha256": "fbc8eb14846638635a9fe999526449527b519a882b505cc7682ced2a1fdf23ed",
+          "created_at": "2025-10-28T15:32:22Z"
+        },
+        {
+          "version": "142.0.1",
+          "build": "bluetaka.25",
+          "url": "https://github.com/coryking/camoufox/releases/download/v142.0.1-bluetaka.25/camoufox-142.0.1-bluetaka.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 307793467,
+          "asset_size": 700625993,
+          "asset_updated_at": "2025-10-23T14:39:31Z",
+          "sha256": "eb08565cce8b410c4e0a4c989c836ddb42e5dc8ac27766ab4f90a702e786b0f0",
+          "created_at": "2025-10-23T14:38:58Z"
+        }
+      ]
+    },
+    {
+      "name": "JWriter20",
+      "repo": "JWriter20/camoufox",
+      "versions": [
+        {
+          "version": "152.0.4",
+          "build": "beta.31",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/font-bundle-v1/camoufox-152.0.4-beta.31-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 584969478,
+          "asset_size": 663476505,
+          "asset_updated_at": "2026-09-24T02:06:41Z",
+          "sha256": "d1a9dc44ff7abd468988f3a11598dc6632aed55be8e92e3ab9202242829e1022",
+          "created_at": "2026-09-24T02:06:18Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.30",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v152.0.4-20260827/camoufox-152.0.4-beta.30-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 532690928,
+          "asset_size": 663467049,
+          "asset_updated_at": "2026-08-27T18:29:33Z",
+          "sha256": "9e0240b628f2fa1d7c49648584ce68e86b5c5a3b172280668ed8ce8da0eec32e",
+          "created_at": "2026-08-27T18:12:56Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.28",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v152.0.4-20260806/camoufox-152.0.4-beta.28-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 504653671,
+          "asset_size": 663770664,
+          "asset_updated_at": "2026-08-07T04:42:22Z",
+          "sha256": "4728110b70667de45766c69205c47c0f3cfc375ea150527737238d0b54e878de",
+          "created_at": "2026-08-07T04:37:42Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.28",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v152.0.4-20260729/camoufox-152.0.4-beta.28-lin.x86_64.zip",
+          "is_prerelease": true,
+          "asset_id": 493433772,
+          "asset_size": 663775052,
+          "asset_updated_at": "2026-07-29T01:30:56Z",
+          "sha256": "647340d51143bfc4b528eed1f759580e3e89430d917e325e744bf23a16939405",
+          "created_at": "2026-07-29T01:26:58Z"
+        },
+        {
+          "version": "152.0.4",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v152.0.4-20260712/camoufox-152.0.4-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 475026358,
+          "asset_size": 663767219,
+          "asset_updated_at": "2026-07-13T03:32:59Z",
+          "sha256": "a7ddd3792a16885de2cf1651e6278d0efdf5e0fbffcfbb25417a51c4d4470348",
+          "created_at": "2026-07-13T03:30:21Z"
+        },
+        {
+          "version": "150.0.2",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v150.0.2-20260615/camoufox-150.0.2-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 448226776,
+          "asset_size": 661730269,
+          "asset_updated_at": "2026-06-15T14:03:26Z",
+          "sha256": "8020db3b6ba407865b08804e806abefc8f0c3aebb27ee66cc25b96b8d88f8aa4",
+          "created_at": "2026-06-15T13:57:53Z"
+        },
+        {
+          "version": "150.0.2",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v150.0.2-20260614/camoufox-150.0.2-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 447336370,
+          "asset_size": 661726406,
+          "asset_updated_at": "2026-06-14T14:34:07Z",
+          "sha256": "3fe438a7e27cfa75fa39b21df1d8a9715eb1679e9e380d59bcbbef7da23f11ab",
+          "created_at": "2026-06-14T14:27:15Z"
+        },
+        {
+          "version": "150.0.2",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v150.0.2-20260613/camoufox-150.0.2-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 446472461,
+          "asset_size": 661720271,
+          "asset_updated_at": "2026-06-13T09:37:10Z",
+          "sha256": "ca0cd368b7061d6f15d25fbb0a0cbd109763564bb9873eba1edfe5b47dcdd8c9",
+          "created_at": "2026-06-13T09:31:24Z"
+        },
+        {
+          "version": "150.0.2",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v150.0.2-20260605/camoufox-150.0.2-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 439758242,
+          "asset_size": 661718240,
+          "asset_updated_at": "2026-06-05T23:29:40Z",
+          "sha256": "d303d75e53451c8863381d687035a930505cc387506960946794e94a8fbdee03",
+          "created_at": "2026-06-05T23:25:45Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-20260509/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 415855701,
+          "asset_size": 657383206,
+          "asset_updated_at": "2026-05-09T06:36:05Z",
+          "sha256": "75b206b43daeb74e52cecd8669797d55fb624c5fe6db1d146cbeec4d3c46fa17",
+          "created_at": "2026-05-09T06:29:42Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-20260508/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 415565714,
+          "asset_size": 657383170,
+          "asset_updated_at": "2026-05-08T21:18:16Z",
+          "sha256": "4d8a22277fde0543cfba37c776bdf1e352275f0597b3551857819a54df7c2754",
+          "created_at": "2026-05-08T21:14:14Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-20260504/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 412080103,
+          "asset_size": 657381796,
+          "asset_updated_at": "2026-05-04T19:38:39Z",
+          "sha256": "5fb1bbacac63775a5e24a2585daa0a5e33e3d5b704dbdf4a22d6d3ceb0207456",
+          "created_at": "2026-05-04T19:36:04Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-beta.25.2/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 402033752,
+          "asset_size": 657374313,
+          "asset_updated_at": "2026-04-22T01:02:49Z",
+          "sha256": "5d30c1e8ce6b0558a6b85e6c1827b458983ee6409a9ffc45b5707f5b24a2d3b4",
+          "created_at": "2026-04-22T00:59:19Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-beta.25.1/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 401131597,
+          "asset_size": 657374139,
+          "asset_updated_at": "2026-04-20T23:59:59Z",
+          "sha256": "0e9adf6e7d994b159a8b6dd5b0f1d057cdd9efecd10283c6128a12952f2e70b1",
+          "created_at": "2026-04-20T23:56:26Z"
+        },
+        {
+          "version": "146.0.1",
+          "build": "beta.25",
+          "url": "https://github.com/JWriter20/camoufox/releases/download/v146.0.1-beta.25/camoufox-146.0.1-beta.25-lin.x86_64.zip",
+          "is_prerelease": false,
+          "asset_id": 398008864,
+          "asset_size": 657375686,
+          "asset_updated_at": "2026-04-16T19:35:29Z",
+          "sha256": "2d2d903bbcbcbe1c71c1d8a6ea75cbf5e2312609974f2452e8dc4b94215dfb3e",
+          "created_at": "2026-04-16T19:29:24Z"
+        }
+      ]
+    }
+  ],
+  "spoof_os": null,
+  "spoof_arch": null
+}

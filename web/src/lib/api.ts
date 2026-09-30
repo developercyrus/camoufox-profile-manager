@@ -117,6 +117,32 @@ export interface SystemStatus {
   uptime_seconds: number
 }
 
+export interface DesktopInfo {
+  display: string
+  vnc_port: number
+  novnc_port: number
+  novnc_url: string
+  width: number
+  height: number
+}
+
+export interface BrowserInfo {
+  profile_id: string
+  process_id: number | null
+  started_at: string
+  desktop: DesktopInfo | null
+}
+
+export interface ProfileLaunchResponse {
+  profile_id: string
+  browser_session_id: string
+  status: string
+  message: string
+  process_id: number | null
+  desktop: DesktopInfo | null
+  camoufox_options: Record<string, unknown>
+}
+
 /**
  * A failed request, carrying enough to act on rather than only to display.
  *
@@ -261,8 +287,15 @@ export const profilesAPI = {
     })
   },
 
-  startProfile(id: string): Promise<unknown> {
-    return request<unknown>(`${API_PREFIX}/profiles/${id}/launch`, {
+  //startProfile(id: string): Promise<unknown> {
+  //  return request<unknown>(`${API_PREFIX}/profiles/${id}/launch`, {
+  //    method: 'POST',
+  //    body: JSON.stringify({ headless: false }),
+  //  })
+  //},
+
+  startProfile(id: string): Promise<ProfileLaunchResponse> {
+    return request<ProfileLaunchResponse>(`${API_PREFIX}/profiles/${id}/launch`, {
       method: 'POST',
       body: JSON.stringify({ headless: false }),
     })
@@ -371,7 +404,8 @@ export interface ImportResult {
 }
 
 export const browsersAPI = {
-  active(): Promise<{ active_browsers: { profile_id: string }[]; count: number }> {
+  //active(): Promise<{ active_browsers: { profile_id: string }[]; count: number }> {
+  active(): Promise<{ active_browsers: BrowserInfo[]; count: number }> {
     return request(`${API_PREFIX}/browsers/active`)
   },
 

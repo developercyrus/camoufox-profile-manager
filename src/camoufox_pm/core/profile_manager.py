@@ -23,6 +23,7 @@ from .models import (
     UsageStats,
     generate_profile_id,
 )
+from .desktop_session import DesktopSessionManager
 
 
 class ProfileManager:
@@ -38,6 +39,8 @@ class ProfileManager:
         # renews this process's leases for as long as its browsers are open.
         self.lease_holder = make_lease_holder()
         self.browser_sessions = BrowserSessionManager(storage_manager, self.lease_holder)
+
+        self.desktop_sessions = DesktopSessionManager()
 
         self.profiles_dir.mkdir(parents=True, exist_ok=True)
         logger.info(f"Initialized ProfileManager with data directory: {self.data_dir}")
@@ -869,6 +872,7 @@ class ProfileManager:
                     "profile_id": profile_id,
                     "message": "Browser is already running for this profile",
                     "process_id": session.process_id,
+                    "desktop": session.desktop,
                 }
 
             options = profile.to_camoufox_launch_options()
@@ -881,6 +885,34 @@ class ProfileManager:
                 except ValueError:
                     logger.warning(f"Ignoring invalid window_size {window_size!r} (expected WxH)")
             options.update(kwargs)
+
+            desktop = None
+            desktop_info = None
+
+            if not headless:
+                screen = profile.browser_settings.screen or "1920x1080"
+
+                try:
+                    screen_width, screen_height = (
+                        int(part) for part in screen.lower().split("x", 1)
+                    )
+                except ValueError:
+                    screen_width, screen_height = 1920, 1080
+
+                desktop = await self.desktop_sessions.acquire(
+                    profile_id,
+                    width=screen_width,
+                    height=screen_height,
+                )
+
+                desktop_info = desktop.info()
+
+                env = dict(options.get("env") or {})
+                env["DISPLAY"] = desktop.display
+                env["GDK_BACKEND"] = "x11"
+                env["MOZ_ENABLE_WAYLAND"] = "0"
+                options["env"] = env
+
 
             # Pin the machine on the first launch and replay it on every one after,
             # so the profile is the same computer each session instead of new
@@ -920,9 +952,17 @@ class ProfileManager:
             # between reading the profile and saving it.
             await proxy_check.fill_what_geoip_would_have(profile.proxy, options)
 
+            #session = await self.browser_sessions.launch(
+            #    profile_id, options, on_exit=self._on_browser_exit
+            #)
             session = await self.browser_sessions.launch(
-                profile_id, options, on_exit=self._on_browser_exit
+                profile_id,
+                options,
+                on_exit=self._on_browser_exit,
+                desktop=desktop_info,
+                on_cleanup=self._on_desktop_cleanup,
             )
+
         except (Exception, asyncio.CancelledError):
             # CancelledError is a BaseException, not an Exception: an HTTP client
             # that disconnects mid-launch cancels this coroutine, and a lease must
@@ -935,6 +975,7 @@ class ProfileManager:
             # other one's live browser. Only a failure that leaves nothing running
             # may hand the lease back.
             if not self.browser_sessions.is_live(profile_id):
+                await self.desktop_sessions.release(profile_id)
                 await self._release_lease_quietly(profile_id)
             raise
         return {
@@ -996,6 +1037,10 @@ class ProfileManager:
             await self.storage.release_lease(profile_id, self.lease_holder)
         except Exception as exc:  # noqa: BLE001 - never mask the original failure
             logger.warning(f"Failed to release the lease on {profile_id}: {exc}")
+
+    async def _on_desktop_cleanup(self, profile_id: str) -> None:
+        """Destroy the Xvfb/VNC/noVNC stack for a closed browser."""
+        await self.desktop_sessions.release(profile_id)
 
     async def release_all_leases(self) -> None:
         """Hand back every lease this process holds — the exit counterpart to launch.

@@ -66,7 +66,15 @@ def _resolve_process_id(obj: Any) -> int | None:
 class BrowserSession:
     """A single running Camoufox browser tied to a profile."""
 
-    def __init__(self, profile_id: str, camoufox: Any, process_id: int | None = None):
+    #def __init__(self, profile_id: str, camoufox: Any, process_id: int | None = None):
+    def __init__(
+        self,
+        profile_id: str,
+        camoufox: Any,
+        process_id: int | None = None,
+        desktop: dict[str, Any] | None = None,
+        on_cleanup: ExitHandler | None = None,
+    ):
         self.profile_id = profile_id
         self.camoufox = camoufox  # AsyncCamoufox context manager instance
         self.process_id = process_id
@@ -74,16 +82,56 @@ class BrowserSession:
         self.monitor_task: asyncio.Task | None = None
         self.on_exit: ExitHandler | None = None
         self._terminated = False
+        self.desktop = desktop
+        self.on_cleanup = on_cleanup
+
+#    async def terminate(self) -> None:
+#        """Close the browser and stop its monitor task. Safe to call twice."""
+#        if self._terminated:
+#            return
+#        self._terminated = True
+#        logger.info(f"Terminating browser session for profile {self.profile_id}")
+#
+#        # The monitor can be the caller here (_monitor -> _handle_exit -> terminate),
+#        # and a task cannot await itself; cancelling is enough in that case.
+#        monitor = self.monitor_task
+#        if monitor and not monitor.done():
+#            monitor.cancel()
+#            if asyncio.current_task() is not monitor:
+#                try:
+#                    await monitor
+#                except asyncio.CancelledError:
+#                    pass
+#
+#        if self.camoufox is not None:
+#            try:
+#                await self.camoufox.__aexit__(None, None, None)
+#            except Exception as exc:  # noqa: BLE001
+#                logger.warning(f"Error closing browser for {self.profile_id}: {exc}")
+#
+#        # Best-effort: make sure the driver process is gone.
+#        if self.process_id:
+#            try:
+#                process = psutil.Process(self.process_id)
+#                process.terminate()
+#                try:
+#                    process.wait(timeout=5)
+#                except psutil.TimeoutExpired:
+#                    process.kill()
+#            except psutil.NoSuchProcess:
+#                pass
+#            except Exception as exc:  # noqa: BLE001
+#                logger.warning(f"Error killing process {self.process_id}: {exc}")
+
 
     async def terminate(self) -> None:
         """Close the browser and stop its monitor task. Safe to call twice."""
         if self._terminated:
             return
+
         self._terminated = True
         logger.info(f"Terminating browser session for profile {self.profile_id}")
 
-        # The monitor can be the caller here (_monitor -> _handle_exit -> terminate),
-        # and a task cannot await itself; cancelling is enough in that case.
         monitor = self.monitor_task
         if monitor and not monitor.done():
             monitor.cancel()
@@ -93,25 +141,34 @@ class BrowserSession:
                 except asyncio.CancelledError:
                     pass
 
-        if self.camoufox is not None:
-            try:
-                await self.camoufox.__aexit__(None, None, None)
-            except Exception as exc:  # noqa: BLE001
-                logger.warning(f"Error closing browser for {self.profile_id}: {exc}")
-
-        # Best-effort: make sure the driver process is gone.
-        if self.process_id:
-            try:
-                process = psutil.Process(self.process_id)
-                process.terminate()
+        try:
+            if self.camoufox is not None:
                 try:
-                    process.wait(timeout=5)
-                except psutil.TimeoutExpired:
-                    process.kill()
-            except psutil.NoSuchProcess:
-                pass
-            except Exception as exc:  # noqa: BLE001
-                logger.warning(f"Error killing process {self.process_id}: {exc}")
+                    await self.camoufox.__aexit__(None, None, None)
+                except Exception as exc:
+                    logger.warning(f"Error closing browser for {self.profile_id}: {exc}")
+
+            if self.process_id:
+                try:
+                    process = psutil.Process(self.process_id)
+                    process.terminate()
+                    try:
+                        process.wait(timeout=5)
+                    except psutil.TimeoutExpired:
+                        process.kill()
+                except psutil.NoSuchProcess:
+                    pass
+                except Exception as exc:
+                    logger.warning(f"Error killing process {self.process_id}: {exc}")
+        finally:
+            if self.on_cleanup is not None:
+                try:
+                    await self.on_cleanup(self.profile_id)
+                except Exception as exc:
+                    logger.warning(
+                        f"Desktop cleanup failed for {self.profile_id}: {exc}"
+                    )
+
 
     def info(self) -> dict[str, Any]:
         """Return a serializable summary of this session."""
@@ -119,6 +176,7 @@ class BrowserSession:
             "profile_id": self.profile_id,
             "process_id": self.process_id,
             "started_at": self.started_at.isoformat(),
+            "desktop": self.desktop,
         }
 
 
@@ -228,6 +286,8 @@ class BrowserSessionManager:
         profile_id: str,
         launch_options: dict[str, Any],
         on_exit: ExitHandler | None = None,
+        desktop: dict[str, Any] | None = None,
+        on_cleanup: ExitHandler | None = None,
     ) -> BrowserSession:
         """Launch a Camoufox browser and register a monitored session."""
         if not CAMOUFOX_AVAILABLE:
@@ -249,7 +309,14 @@ class BrowserSessionManager:
                 raise BrowserLaunchError(f"Failed to launch browser: {exc}") from exc
 
             process_id = _resolve_process_id(browser) or _resolve_process_id(camoufox)
-            session = BrowserSession(profile_id, camoufox, process_id)
+            #session = BrowserSession(profile_id, camoufox, process_id)
+            session = BrowserSession(
+                profile_id,
+                camoufox,
+                process_id,
+                desktop=desktop,
+                on_cleanup=on_cleanup,
+            )
             session.on_exit = on_exit
             self.active_sessions[profile_id] = session
         finally:

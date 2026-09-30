@@ -9,6 +9,16 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 from camoufox_pm.core.models import Profile, ProfileStatus, ProxyCheckRecord
 from camoufox_pm.core.proxy_check import Level, ProxyCheckResult
 
+class DesktopInfo(BaseModel):
+    """Remote desktop assigned to a headed browser."""
+
+    display: str
+    vnc_port: int
+    novnc_port: int
+    novnc_url: str
+    width: int
+    height: int
+
 
 class ProfileCreateRequest(BaseModel):
     """Request body for creating a profile."""
@@ -279,6 +289,11 @@ class ProfileLaunchResponse(BaseModel):
         description="Launch internals passed to Camoufox; shape not covered by the API contract",
     )
 
+    desktop: DesktopInfo | None = Field(
+        None,
+        description="Per-profile Xvfb/VNC/noVNC information for headed browsers.",
+    )
+
 
 class BrowserCloseResponse(BaseModel):
     """Response returned when a browser is asked to close."""
@@ -294,7 +309,7 @@ class ActiveBrowserInfo(BaseModel):
     profile_id: str
     process_id: int | None
     started_at: datetime
-
+    desktop: DesktopInfo | None = None
 
 class ActiveBrowsersResponse(BaseModel):
     """The browsers currently running."""

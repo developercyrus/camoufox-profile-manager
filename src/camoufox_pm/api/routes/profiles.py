@@ -329,12 +329,27 @@ async def launch_profile(profile_id: str, request: ProfileLaunchRequest):
 
         logger.info(f"Launched browser for profile: {profile_id}")
 
+        #return ProfileLaunchResponse(
+        #    profile_id=profile_id,
+        #    browser_session_id=str(uuid.uuid4()),
+        #    status=browser_session.get("status", "launched"),
+        #    message=browser_session.get("message", "Browser launched successfully"),
+        #    process_id=browser_session.get("process_id"),
+        #    camoufox_options={
+        #        "process_id": browser_session.get("process_id"),
+        #        "status": browser_session.get("status"),
+        #        "options": browser_session.get("camoufox_options", {}),
+        #    },
+        #)
+
+
         return ProfileLaunchResponse(
             profile_id=profile_id,
             browser_session_id=str(uuid.uuid4()),
             status=browser_session.get("status", "launched"),
             message=browser_session.get("message", "Browser launched successfully"),
             process_id=browser_session.get("process_id"),
+            desktop=browser_session.get("desktop"),
             camoufox_options={
                 "process_id": browser_session.get("process_id"),
                 "status": browser_session.get("status"),
